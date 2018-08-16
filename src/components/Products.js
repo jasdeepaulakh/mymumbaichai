@@ -6,10 +6,12 @@ class Products extends Component{
         super();
         this.state = {
             products: [],
+            isLoading:false,
         }
     }
 
     componentDidMount(){
+        this.setState({isLoading:true});
         var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
             targetUrl = 'https://rest-test-jas.herokuapp.com/product'
         fetch(proxyUrl + targetUrl)
@@ -28,13 +30,18 @@ class Products extends Component{
             })
     
             
-        this.setState({products: products});
+        this.setState({products: products, isLoading:false});
         console.log("state", this.state.products);
         })
         
     }
 
     render(){
+        if(this.state.isLoading){
+            return(
+                <p>Loading...</p>
+            )
+        }
         return(
             <div>
             <p className="App-intro">
