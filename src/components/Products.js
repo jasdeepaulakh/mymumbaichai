@@ -10,7 +10,9 @@ class Products extends Component{
     }
 
     componentDidMount(){
-        fetch('https://rest-test-jas.herokuapp.com/product')
+        var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+            targetUrl = 'https://rest-test-jas.herokuapp.com/product'
+        fetch(proxyUrl + targetUrl)
         .then(response =>{
             return response.json();
         }).then(data => {
