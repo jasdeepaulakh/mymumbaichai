@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Grid, Card, Icon, Image } from 'semantic-ui-react'
-import { Dimmer, Loader, Segment } from 'semantic-ui-react'
+import { Grid, Card, Icon, Image, Item } from 'semantic-ui-react'
+import { Loader } from 'semantic-ui-react'
 
 class Products extends Component {
 

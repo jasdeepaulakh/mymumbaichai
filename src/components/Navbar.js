@@ -7,17 +7,21 @@ export default class Navbar extends Component {
         return (
             <Menu fixed='top' inverted>
                 <Container>
-                    <Link to="/">
-                        <Menu.Item header>
+                        <Link to="/" className="header item">
                             <Image size='mini' src='https://assets.bigcartel.com/theme_images/35952433/Title_copy.png' style={{ marginRight: '1.5em' }} />
-                        </Menu.Item>
-                    </Link>
-                    <Menu.Item link>
-                        <Link to="/">Home</Link>
-                    </Menu.Item>
-                    <Menu.Item link>
-                        <Link to="/products">Shop</Link>
-                    </Menu.Item>
+                        </Link>
+                        <Link to="/" className="item">
+                            Home
+                        </Link>
+                        <Link to="/products" className="item">
+                            Shop
+                        </Link>
+                        <Link to="/about" className="item">
+                            About
+                        </Link>
+                        <Link to="/contact" className="item">
+                            Contact Us
+                        </Link>
                 </Container>
             </Menu>
         )
