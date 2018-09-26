@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Grid, Card, Icon, Image, Item } from 'semantic-ui-react'
-import { Loader } from 'semantic-ui-react'
+import { Grid, Card, Icon, Image, Item, Segment } from 'semantic-ui-react'
+import { Loader, Container } from 'semantic-ui-react'
 
 class Products extends Component {
 
@@ -12,6 +12,9 @@ class Products extends Component {
         }
     }
 
+
+
+
     componentDidMount() {
         this.setState({ isLoading: true });
         var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
@@ -20,23 +23,20 @@ class Products extends Component {
             .then(response => {
                 return response.json();
             }).then(data => {
-                console.log(data);
                 let products = data.map((product) => {
+                    var productPrice = (product.price).toFixed(2)
                     return (
                         <Grid.Column key={product.id}>
-                            <Card>
-                                <Image src='https://assets.bigcartel.com/product_images/209033911/Product+Image+square2.png' />
-                                <Card.Content>
-                                    <Card.Header>{product.name}</Card.Header>
-                                    <Card.Description>{product.description}</Card.Description>
-                                </Card.Content>
-                                <Card.Content extra>
-                                    <a>
-                                        <Icon name='pound' />
-                                        {product.price}
-                                    </a>
-                                </Card.Content>
-                            </Card>
+                            <Item>
+                                <Image src={product.product_image} />
+                                <Item.Content>
+                                    <Item.Header>{product.name}</Item.Header>
+                                    <Item.Description>{product.description}</Item.Description>
+                                </Item.Content>
+                                <Item.Extra>
+                                    <Icon name='pound' />{productPrice}
+                                </Item.Extra>
+                            </Item>
                         </Grid.Column>
                     )
                 })
@@ -57,10 +57,8 @@ class Products extends Component {
         return (
             <div>
                 <h1>Products</h1>
-                <Grid>
-                    <Grid.Row columns={2}>
-                        {this.state.products}
-                    </Grid.Row>
+                <Grid stackable columns={3}>
+                    {this.state.products}
                 </Grid>
             </div>
         )
