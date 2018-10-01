@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Grid, Card, Icon, Image, Item, Segment } from 'semantic-ui-react'
-import { Loader, Container } from 'semantic-ui-react'
+import { Grid, Icon, Image, Item } from 'semantic-ui-react'
+import { Loader } from 'semantic-ui-react'
+import { connect } from 'react-redux';
 
 class Products extends Component {
 
@@ -11,9 +12,6 @@ class Products extends Component {
             isLoading: false,
         }
     }
-
-
-
 
     componentDidMount() {
         this.setState({ isLoading: true });
