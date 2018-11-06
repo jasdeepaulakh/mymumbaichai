@@ -11,15 +11,11 @@ class Products extends Component {
             isLoading: false,
         }
     }
-
-
-
-
+    
     componentDidMount() {
         this.setState({ isLoading: true });
-        var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-            targetUrl = 'https://rest-test-jas.herokuapp.com/product'
-        fetch(proxyUrl + targetUrl)
+        var targetUrl = 'https://rest-test-jas.herokuapp.com/product'
+        fetch(targetUrl)
             .then(response => {
                 return response.json();
             }).then(data => {
